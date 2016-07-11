@@ -80,11 +80,14 @@ button {
 button:hover {
   background-color: rgba(255,0,0,.4);
   border: 1px solid rgb(255,0,0);
+  cursor: pointer;
 }
 
 #success-msg {
   color: rgb(255,255,255);
   font-family: 'Platform Web';
+  font-size: 20px;
+  margin: 1em 0;
 }
 
 /* Tablet */ 
