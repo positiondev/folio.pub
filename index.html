@@ -2,6 +2,7 @@
   <head>
     <meta name="viewport" content="initial-scale=1">
     <title>Folio - Web solutions for book publishers</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
     <link href='style.css' rel='stylesheet'>    
   </head>
   <body>
@@ -12,9 +13,37 @@
     <div id="notification-form">
       <p>Or sign up to receive updates:</p>
       <input class='text' id='email' name='email' type='email' placeholder="Email">
-      <button class='contact-form' id='send' onclick='' value='Send'>Notify me</button>
+      <button class='contact-form' id='send' onclick='postToGoogleDrive()' value='Send'>Notify me</button>
       <div id='success-msg'></div>
     </div>
     </div>
+
+    <script>
+    function postToGoogleDrive() {
+        console.log("hello");
+        console.log($('#email').val());
+        var email = $('#email').val();
+        var googleDrive = "https://docs.google.com/forms/d/e/1FAIpQLSeAjMmPTpPSAP6DaKluHw-Rei6Ch19UoEbnMvWONxiJngDeJQ/formResponse";
+
+        $.ajax({
+          url: googleDrive,
+          data: {
+          "entry.1229852547": email
+          },
+          type: "POST",
+          dataType: "xml",
+          statusCode: {
+            0: function () {
+             $('#success-msg').html("Thanks!");
+              clear();
+            }
+          }
+          });
+        }
+
+      function clear() {
+        $('#email').val('');
+      }
+    </script>
   </body>
 </html>

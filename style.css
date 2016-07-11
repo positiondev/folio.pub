@@ -60,6 +60,10 @@ input {
   width: 70%;
 }
 
+input:-webkit-autofill {
+  color: transparent;
+}
+
 button {
   background-color: rgb(36,41,48);
   color: rgb(255,0,0);
@@ -78,13 +82,18 @@ button:hover {
   border: 1px solid rgb(255,0,0);
 }
 
+#success-msg {
+  color: rgb(255,255,255);
+  font-family: 'Platform Web';
+}
+
 /* Tablet */ 
+
 @media only screen and (min-width : 721px) and (max-width : 1020px) {
   input {
     width: 50%;
   }
 }
-
 
 /* Mobile */
 

@@ -1,0 +1,11 @@
+
+test:
+  override:
+    - echo 0
+
+deployment:
+  master:
+    branch: master
+    commands:
+      - sudo pip install awscli
+      - aws s3 sync . s3://folio.pub/ --delete --exclude ".git/*" --exclude "circle.yml"
